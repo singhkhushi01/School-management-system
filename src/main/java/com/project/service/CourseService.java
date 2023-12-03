@@ -1,20 +1,19 @@
 package com.project.service;
 import com.project.model.Course;
+import com.project.repository.CourseRepository;
 
 import java.util.*;
 import java.util.Optional;
-
+@org.springframework.stereotype.Service
 public class CourseService implements Service<Course>{
 
-    private List<Course> courses;
-    public CourseService(){
-        courses=new ArrayList<>();
-        Course springBoot = new Course(1, "spring boot started");
-        courses.add(springBoot);
+    private CourseRepository repository;
+    public CourseService(CourseRepository courseRepository){
+        repository = courseRepository;
     }
     @Override
     public List<Course> list() {
-        return courses;
+        return repository.findAll();
     }
 
     @Override

@@ -11,7 +11,9 @@ public class New_project {
 
 //        or
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
-        CourseService service = applicationContext.getBean("Khushi", CourseService.class);
+        CourseService service = applicationContext.getBean("courseService", CourseService.class);
+
         System.out.println(service.list());
+
     }
 }
